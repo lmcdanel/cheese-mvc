@@ -7,8 +7,16 @@
     <h1 th:text="${title}"></h1>
     <nav th:replace="fragments ::navigation"></nav>
     <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
-    <ul>
-        <li th:each="cheese : ${cheeses}" th:text="${cheese}"></li>
-    </ul>
+    <table>
+    <tr>
+        <td><b>Name</b></td>
+        <td><b>Description</b></td>
+    </tr>
+    <tr th:each="cheese : ${cheeses}">
+        <td th:text="${cheese.key}">Key</td>
+        <td th:text="${cheese.value}">Value</td>
+        <input type="checkbox" name="delete">
+    </tr>
+    </table>
 </body>
 </html>
